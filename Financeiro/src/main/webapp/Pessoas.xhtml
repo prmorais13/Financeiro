@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Pessoa</title>
+
+	<h:outputStylesheet library="css" name="estilo.css" />
+</h:head>
+
+<h:body>
+	<h:form id="frm">
+		<div id="conteudo">
+			<h:panelGrid columns="1" style="margin-left: 10px">
+					<p:outputLabel value="Nome" for="nome" />
+					<p:inputText size="30" id="nome" value="#{cadastroPessoaBean.pessoa.nome}" />
+					
+					<p:commandButton value="Cadastrar" icon="fa fa-save"
+						id="botao-cadastrar" update="frm"
+						action="#{cadastroPessoaBean.cadastrar}" />
+			</h:panelGrid>
+			
+			<br/>
+		
+			<p:dataGrid value="#{cadastroPessoaBean.todasPessoas}"
+				var="pessoa" columns="3" layout="grid" id="grid-contatos" emptyMessage="Nenhum registro cadastrado.">
+				<p:panel header="#{contato.nome}" style="text-align: center">
+					<h:outputText value="#{pessoa.nome}" />
+				</p:panel>
+			</p:dataGrid>
+		</div>
+	</h:form>
+</h:body>
+</html>
