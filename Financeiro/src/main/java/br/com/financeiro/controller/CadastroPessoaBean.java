@@ -1,4 +1,4 @@
-package br.com.financeiro.model;
+package br.com.financeiro.controller;
 
 import java.io.Serializable;
 import java.util.List;
@@ -8,6 +8,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.financeiro.model.Pessoa;
 import br.com.financeiro.repository.Pessoas;
 
 @Named
