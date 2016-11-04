@@ -25,13 +25,23 @@
 			</h:panelGrid>
 			
 			<br/>
-		
-			<p:dataGrid value="#{cadastroPessoaBean.todasPessoas}"
-				var="pessoa" columns="3" layout="grid" id="grid-contatos" emptyMessage="Nenhum registro cadastrado.">
-				<p:panel header="#{contato.nome}" style="text-align: center">
-					<h:outputText value="#{pessoa.nome}" />
-				</p:panel>
-			</p:dataGrid>
+			
+			<p:dataTable var="p" id="pessoas" value="#{cadastroPessoaBean.todasPessoas}"
+				emptyMessage="Nenhuma pessoa encontrada." paginator="true" rows="10"
+				paginatorPosition="bottom" widgetVar="tabelaPessoas" >
+				
+				<f:facet name="header">
+					<p:outputPanel>
+						<h:outputText value="Pesquisar..." />
+						<p:inputText id="globalFilter" onkeyup="PF('tabelaPessoas').filter()" />
+					</p:outputPanel>		
+				</f:facet>
+				
+				<p:column headerText="Nome" filterBy="#{p.nome}" filterStyle="display:none;">
+					<h:outputText value="#{p.nome}" />				
+				</p:column>				
+			</p:dataTable>
+
 		</div>
 	</h:form>
 </h:body>
