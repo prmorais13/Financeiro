@@ -25,7 +25,7 @@
 		<javax.faces.version>2.3.0-m06</javax.faces.version>
 
 		<!-- Weld - Implementação do CDI -->
-		<weld.version>2.3.5.Final</weld.version>
+		<weld.version>2.4.0.Final</weld.version>
 
 		<!-- Weld depende do Jandex -->
 		<jandex.version>2.0.3.Final</jandex.version>
@@ -64,7 +64,7 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.connector.version}</version>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 		
 		<dependency>
