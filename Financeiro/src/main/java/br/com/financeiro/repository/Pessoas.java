@@ -18,11 +18,20 @@ public class Pessoas implements Serializable {
 	
 	@Transactional
 	public void adicionar(Pessoa pessoa){
-		this.manager.persist(pessoa);
+		this.manager.merge(pessoa);
+	}
+	
+	@Transactional
+	public void remover(Pessoa pessoa){
+		pessoa = porId(pessoa.getId());
+		this.manager.remove(pessoa);
 	}
 	
 	public List<Pessoa> todos(){
 		return this.manager.createQuery("FROM Pessoa ORDER BY nome", Pessoa.class).getResultList();
 	}
 
+	public Pessoa porId(Long id){
+		return this.manager.find(Pessoa.class, id);
+	}
 }

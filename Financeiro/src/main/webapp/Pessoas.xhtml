@@ -14,6 +14,7 @@
 
 <h:body>
 	<h:form id="frm">
+		<p:growl id="mensagens" showDetail="true" />
 		<div id="conteudo">
 			<h:panelGrid columns="1" style="margin-left: 10px">
 					<p:outputLabel value="Nome" for="nome" />
@@ -22,13 +23,20 @@
 					<p:commandButton value="Cadastrar" icon="fa fa-save"
 						id="botao-cadastrar" update="frm"
 						action="#{cadastroPessoaBean.cadastrar}" />
+					
+					<p:commandButton value="Excluir" id="botao-excluir" update="frm"
+						action="#{cadastroPessoaBean.excluir}" />				
 			</h:panelGrid>
 			
 			<br/>
 			
 			<p:dataTable var="p" id="pessoas" value="#{cadastroPessoaBean.todasPessoas}"
 				emptyMessage="Nenhuma pessoa encontrada." paginator="true" rows="10"
-				paginatorPosition="bottom" widgetVar="tabelaPessoas" >
+				paginatorPosition="bottom" widgetVar="tabelaPessoas" selectionMode="single"
+				selection="#{cadastroPessoaBean.pessoaSelecionada}" rowKey="#{p.id}" >
+				
+				<p:ajax event="rowSelect" listener="#{cadastroPessoaBean.alterar}"
+				update="@form" process="@this" />
 				
 				<f:facet name="header">
 					<p:outputPanel>
@@ -39,9 +47,12 @@
 				
 				<p:column headerText="Nome" filterBy="#{p.nome}" filterStyle="display:none;">
 					<h:outputText value="#{p.nome}" />				
-				</p:column>				
+				</p:column>		
 			</p:dataTable>
-
+			
+			<p:commandButton value="Alterar" icon="fa fa-save"
+				id="botao-alterar" update="frm"
+				action="#{cadastroPessoaBean.alterar}" />
 		</div>
 	</h:form>
 </h:body>
