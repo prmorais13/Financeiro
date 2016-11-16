@@ -10,7 +10,6 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.hibernate.cfg.OneToOneSecondPass;
 import org.primefaces.event.SelectEvent;
 
 import br.com.financeiro.model.Pessoa;
@@ -55,7 +54,7 @@ public class CadastroPessoaBean implements Serializable {
 	}
 	
 	public void excluir(){
-		if (this.pessoa.getId() != 0){
+		if (this.pessoa.getId() != null){
 			this.pessoas.remover(this.pessoa);
 			this.iniciar();
 		}else{
