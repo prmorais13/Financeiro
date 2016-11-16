@@ -15,7 +15,7 @@
 		<!-- Hibernate C3P0 -->
 		<hibernate.c3p0>5.0.11.Final</hibernate.c3p0>
 		
-		<!-- Hibernate validator-->
+		<!-- Hibernate validator version-->
 		<hibernate.validator>5.3.2.Final</hibernate.validator>
 
 		<!-- Driver MySQL -->
