@@ -35,6 +35,8 @@
 
 		<!-- Weld depende do Jandex -->
 		<jandex.version>2.0.3.Final</jandex.version>
+		
+		<junit.version>4.12</junit.version>
 	</properties>
 
 	<build>
@@ -113,6 +115,12 @@
 			<artifactId>all-themes</artifactId>
 			<version>${allthemes.version}</version>
 			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
 		</dependency>
 	</dependencies>
 </project>
